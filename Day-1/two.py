@@ -23,4 +23,4 @@ for num in left:
     multiplier = right.count(num)
     num = num * multiplier
     total += num
-print(total)
+logging.debug(f"TOTAL {total}")
