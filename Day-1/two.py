@@ -6,12 +6,10 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S",
     level=logging.DEBUG
 )
-input_file = 'input_one.txt'
+
+input_file = 'input.txt'
 left = []
-left_seperated = []
 right = []
-right_seperated = []
-final = []
 seperator = '   '
 with open(input_file) as f:
     for line in f:
@@ -20,6 +18,9 @@ with open(input_file) as f:
 
 left = sorted(list(map(int, left)))
 right = sorted(list(map(int,right)))
-
-total_distance = sum(abs(l - r) for l, r in zip(left, right))
-logging.debug(f"TOTAL DISTANCE {total_distance}")
+total = 0
+for num in left:
+    multiplier = right.count(num)
+    num = num * multiplier
+    total += num
+print(total)
